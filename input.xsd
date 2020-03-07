@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  XML schema -->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://nure.ua/panchenko/p7"
+            xmlns:tns="http://nure.ua/panchenko/p7">
+
+
+    <xsd:element name="Gems">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Gem"
+                             type="tns:Gem" maxOccurs="unbounded" minOccurs="0"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="Gem">
+        <xsd:sequence>
+            <xsd:element name="Gem_name" type="xsd:string"/>
+            <xsd:element name="Preciousness" type="tns:Preciousness" />
+            <xsd:element name="Origin" type="xsd:string" />
+            <xsd:element name="Visual_parameters" type="tns:Visual_parameters" />
+            <xsd:element name="Value" type="tns:Weight" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!-- драгоценный - полудрагоценный -->
+    <xsd:simpleType name="Preciousness">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Precious"/>
+            <xsd:enumeration value="Semiprecious"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+<!--    визуальные параметры-->
+    <xsd:complexType name="Visual_parameters">
+        <xsd:sequence>
+            <xsd:element name="Color" type="tns:Color"  default="Red"/>
+            <xsd:element name="Transparency" type="tns:TransparencyType" />
+            <xsd:element name="Facets" type="tns:Facets" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--    огранка-->
+    <xsd:simpleType name="Facets">
+        <xsd:restriction base="xsd:int">
+            <xsd:minInclusive value="4" />
+            <xsd:maxInclusive value="15" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+<!--    прозрачность-->
+    <xsd:simpleType name="Transparency">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:minExclusive value="0" />
+            <xsd:maxExclusive value="100" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="TransparencyType">
+        <xsd:simpleContent>
+            <xsd:extension base="tns:Transparency">
+                <xsd:attribute name="Trans_measure" type="xsd:string" fixed="percent" use="required"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+<!--цвет-->
+    <xsd:simpleType name="Color">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Green"/>
+            <xsd:enumeration value="Red"/>
+            <xsd:enumeration value="Yellow"/>
+            <xsd:enumeration value="Blue"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+<!--    вес-->
+    <xsd:complexType name="Weight">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:int">
+                <xsd:attribute name="Weight_measure" type="xsd:string" fixed="carat" use="required"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+</xsd:schema>

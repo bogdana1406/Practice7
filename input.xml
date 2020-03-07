@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Input XML document. This XML is valid against Test.xsd XML schema-->
+  <p7:Gems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:p7="http://nure.ua/panchenko/p7"
+           xsi:schemaLocation="http://nure.ua/panchenko/p7 input.xsd">
+  <Gem>
+    <Gem_name>Diamond</Gem_name>
+    <Preciousness>Semiprecious</Preciousness>
+    <Origin>Africa</Origin>
+    <Visual_parameters>
+      <Color>Yellow</Color>
+      <Transparency Trans_measure="percent">99</Transparency>
+      <Facets>4</Facets>
+    </Visual_parameters>
+    <Value Weight_measure="carat">3</Value>
+  </Gem>
+  <Gem>
+    <Gem_name>Ruby</Gem_name>
+    <Preciousness>Precious</Preciousness>
+    <Origin>Africa</Origin>
+    <Visual_parameters>
+      <Color>Red</Color>
+      <Transparency Trans_measure="percent">60</Transparency>
+      <Facets>6</Facets>
+    </Visual_parameters>
+    <Value Weight_measure="carat">5</Value>
+  </Gem>
+  <Gem>
+    <Gem_name>Emerald</Gem_name>
+    <Preciousness>Precious</Preciousness>
+    <Origin>USA</Origin>
+    <Visual_parameters>
+      <Color>Green</Color>
+      <Transparency Trans_measure="percent">80</Transparency>
+      <Facets>8</Facets>
+    </Visual_parameters>
+    <Value Weight_measure="carat">12</Value>
+  </Gem>
+</p7:Gems>
